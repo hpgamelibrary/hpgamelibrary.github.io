@@ -1,0 +1,10 @@
+!--------------------------------HPGAMELIBRARY--------------------------------!
+Game name: Grand Thrft Auto IV
+Edition: BASE GAME ONLY
+Game version: 1.2.0.43
+Date of Repack: Feb 16 2026
+Based on: GTA IV 7Launcher 2024
+Mods: FusionFix (Pre-installed)
+
+
+SFBHQU1FTElCUkFSWV9HUkFORC1USEVGVC1BVVRPLUlWXzEuMi4wLjQzX1dJVEhfRlVTSU9ORklYXyhCQVNFLUdBTUVfT05MWSk=
