@@ -1,25 +1,4 @@
 <!DOCTYPE html>
-<head>
-    <style>
-        .top-right-link {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: #E50914;
-            color: white;
-            padding: 10px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-            z-index: 1000; /* Keeps it above other elements */
-        }
-    </style>
-</head>
-<body>
-
-    <a href="https://hpgamelibrary.github.io/games/" class="top-right-link">Search</a>
-
-</body>
-</html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -42,8 +21,34 @@
         }
 
         h1 {
-            margin: 0;
+            margin: 0 0 15px 0;
             color: #E50914;
+        }
+
+        /* Search Bar Styling */
+        .search-container {
+            margin-bottom: 10px;
+        }
+
+        #searchInput {
+            width: 80%;
+            max-width: 400px;
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: 2px solid #333;
+            background-color: #222;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        #searchInput:focus {
+            border-color: #E50914;
+        }
+
+        #searchInput::placeholder {
+            color: #888;
         }
 
         /* Grid layout for the catalog cards */
@@ -114,10 +119,12 @@
 
     <header>
         <h1>HPGameLibrary Catalog</h1>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for games..." onkeyup="filterGames()">
+        </div>
     </header>
 
-    <main class="catalog-container">
-        <!-- Movie Entry 1 -->
+    <main class="catalog-container" id="catalog">
         <article class="movie-card">
             <img class="movie-poster" src="https://cdn2.steamgriddb.com/grid/af0a25e27510f77d97634a6bbe653b13.jpg" alt="Interstellar Poster">
             <div class="movie-info">
@@ -131,7 +138,6 @@
             </div>
         </article>
 
-        <!-- Movie Entry 2 -->
         <article class="movie-card">
             <img class="movie-poster" src="https://cdn2.steamgriddb.com/grid/94f88ceb11d0e2e52a7344dc94648c75.png" alt="Inception Poster">
             <div class="movie-info">
@@ -145,7 +151,6 @@
             </div>
         </article>
 
-        <!-- Movie Entry 3 -->
         <article class="movie-card">
             <img class="movie-poster" src="https://cdn2.steamgriddb.com/grid/3940304b536796dcc176aa83203a3955.png" alt="The Dark Knight Poster">
             <div class="movie-info">
@@ -159,7 +164,6 @@
             </div>
         </article>
 
-        <!-- Movie Entry 4 -->
         <article class="movie-card">
             <img class="movie-poster" src="https://cdn2.steamgriddb.com/grid/dc6ab89f835061d1d33e4e97cc60b126.jpg" alt="Spirited Away Poster">
             <div class="movie-info">
@@ -173,8 +177,7 @@
             </div>
         </article>
 		
-		<!-- Movie Entry 5 -->
-        <article class="movie-card">
+		<article class="movie-card">
             <img class="movie-poster" src="https://shared.steamstatic.com/store_item_assets/steam/apps/883710/library_600x900_2x.jpg?t=1671156445" alt="Spirited Away Poster">
             <div class="movie-info">
                 <h2 class="movie-title">Resident Evil 2 Remake</h2>
@@ -187,8 +190,7 @@
             </div>
         </article>
 		
-				<!-- Movie Entry 6 -->
-        <article class="movie-card">
+				<article class="movie-card">
             <img class="movie-poster" src="https://shared.steamstatic.com/store_item_assets/steam/apps/3764200/bde37e52add84267aeaf70c9f32d72381684d928/library_600x900_2x.jpg?t=1753863759" alt="Spirited Away Poster">
             <div class="movie-info">
                 <h2 class="movie-title">Resident Evil Requiem</h2>
@@ -201,8 +203,7 @@
             </div>
         </article>
 		
-					<!-- Movie Entry 7 -->
-        <article class="movie-card">
+					<article class="movie-card">
             <img class="movie-poster" src="https://cdn2.steamgriddb.com/grid/abaa9aa65a3f698cf1b3e51d4ffcb0f3.png" alt="Spirited Away Poster">
             <div class="movie-info">
                 <h2 class="movie-title">Among US</h2>
@@ -215,8 +216,7 @@
             </div>
         </article>
 		
-				<!-- Movie Entry 8 -->
-        <article class="movie-card">
+				<article class="movie-card">
             <img class="movie-poster" src="https://cdn2.steamgriddb.com/grid/9d38ff62f05682f657e877ef550b46dd.png" alt="Spirited Away Poster">
             <div class="movie-info">
                 <h2 class="movie-title">Resident Evil 3 Remake</h2>
@@ -229,8 +229,7 @@
             </div>
         </article>
 		
-		<!-- Movie Entry 9 -->
-        <article class="movie-card">
+		<article class="movie-card">
             <img class="movie-poster" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgsy2jd0c2-jwDLEsS1QbtbSLlYhrjYwJ00E-HP0mxFGqRp-RiuVI2zbx-vubqAIjyBiAMYeMHOqURN3r9fDWpa-bTf9ymaEPFoVjAHwD_nhXM4INh50R1nVkWbtDgdYHeGLdkdNHbTWIDOKwXOjQMQYPuqJgfWz3_UqtHj1YgkzjG0Se4rVV-YbxDEGKUe/s1000/71E3WJx1W6L._AC_UF894,1000_QL80_.jpg" alt="Spirited Away Poster">
             <div class="movie-info">
                 <h2 class="movie-title">FNAF Collection</h2>
@@ -243,8 +242,7 @@
             </div>
         </article>
 		
-				<!-- Movie Entry 10 -->
-        <article class="movie-card">
+				<article class="movie-card">
             <img class="movie-poster" src="https://shared.steamstatic.com/store_item_assets/steam/apps/3357650/ffe0d0b1778821e7e63b0a57ee8a16b8ab749497/library_600x900_2x.jpg?t=1749097394" alt="Spirited Away Poster">
             <div class="movie-info">
                 <h2 class="movie-title">PRAGMATA</h2>
@@ -253,12 +251,11 @@
                     <span class="rating"></span>
                 </div>
                 <p class="movie-description"></p>
-				<a href="https://gamedeep241.github.io/games/PRAGMATA/iodex.html" style="color: aqua; ">Download game</a>
+				<a href="https://gamedeep.netlify.app/games/pragmata/iodex.html" style="color: aqua; ">Download game</a>
             </div>
         </article>
 		
-				<!-- Movie Entry 11 -->
-        <article class="movie-card">
+				<article class="movie-card">
             <img class="movie-poster" src="https://shared.steamstatic.com/store_item_assets/steam/apps/418370/library_600x900_2x.jpg?t=1582692054" alt="Spirited Away Poster">
             <div class="movie-info">
                 <h2 class="movie-title">Resident Evil 7: Biohazard</h2>
@@ -271,8 +268,7 @@
             </div>
         </article>
 		
-		<!-- Movie Entry 12 -->
-        <article class="movie-card">
+		<article class="movie-card">
             <img class="movie-poster" src="https://shared.steamstatic.com/store_item_assets/steam/apps/1196590/library_600x900_2x.jpg?t=1666762266" alt="Spirited Away Poster">
             <div class="movie-info">
                 <h2 class="movie-title">Resident Evil Village</h2>
@@ -285,8 +281,7 @@
             </div>
         </article>
 		
-		<!-- Movie Entry 13 -->
-        <article class="movie-card">
+		<article class="movie-card">
             <img class="movie-poster" src="https://cdn2.steamgriddb.com/thumb/f7e560ff0b4ff781bd6d3b2ec442daee.jpg" alt="Spirited Away Poster">
             <div class="movie-info">
                 <h2 class="movie-title">Grand Theft Auto IV</h2>
@@ -299,8 +294,7 @@
             </div>
         </article>
 		
-		<!-- Movie Entry 14 -->
-        <article class="movie-card">
+		<article class="movie-card">
             <img class="movie-poster" src="https://cdn2.steamgriddb.com/grid/005c3dcb8b95f0ead48dcef46d7a934b.png" alt="Spirited Away Poster">
             <div class="movie-info">
                 <h2 class="movie-title">Forza Horizon 6</h2>
@@ -313,8 +307,7 @@
             </div>
         </article>
 		
-		<!-- Movie Entry 15 -->
-        <article class="movie-card">
+		<article class="movie-card">
             <img class="movie-poster" src="https://cdn2.steamgriddb.com/grid/0e98729842c746b65e68c204d5c17c2a.jpg" alt="Spirited Away Poster">
             <div class="movie-info">
                 <h2 class="movie-title">Forza Horizon 3</h2>
@@ -327,8 +320,7 @@
             </div>
         </article>
 		
-		<!-- Movie Entry 16 -->
-        <article class="movie-card">
+		<article class="movie-card">
             <img class="movie-poster" src="https://cdn2.steamgriddb.com/grid/ab704bd383ad12c1e7f6bcaa0da165b0.png" alt="Spirited Away Poster">
             <div class="movie-info">
                 <h2 class="movie-title">Forza Horizon 4</h2>
@@ -341,8 +333,7 @@
             </div>
         </article>
 		
-		<!-- Movie Entry 17 -->
-        <article class="movie-card">
+		<article class="movie-card">
             <img class="movie-poster" src="https://cdn2.steamgriddb.com/grid/038a5b2bc50685ad5a527a818a00b6df.png" alt="Spirited Away Poster">
             <div class="movie-info">
                 <h2 class="movie-title">Chained Together</h2>
@@ -355,6 +346,29 @@
             </div>
         </article>
     </main>
+
+    <script>
+        function filterGames() {
+            // Get the search input value and convert to lowercase
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            
+            // Get all movie cards
+            let cards = document.querySelectorAll('.movie-card');
+            
+            // Loop through all cards to check for matches
+            cards.forEach(card => {
+                // Get the text content of the title within the card
+                let title = card.querySelector('.movie-title').textContent.toLowerCase();
+                
+                // If the title includes the search text, display it. Otherwise, hide it.
+                if (title.includes(input)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+    </script>
 
 </body>
 </html>

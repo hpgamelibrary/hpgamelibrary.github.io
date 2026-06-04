@@ -16,7 +16,7 @@
     }
 
     body {
-      background-color: #0b0c10; /* Deep dark background */
+      background-color: #0a0000; /* Deep dark red-black background */
       color: #c5c6c7; /* Light grey text */
       font-family: 'Orbitron', sans-serif;
       overflow-x: hidden;
@@ -28,8 +28,8 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px 5vw;
-      background: rgba(11, 12, 16, 0.95);
-      border-bottom: 2px solid #66fcf1;
+      background: rgba(10, 0, 0, 0.95);
+      border-bottom: 2px solid #ff2a2a; /* Neon Red */
       position: fixed;
       width: 100%;
       top: 0;
@@ -39,10 +39,10 @@
     .logo {
       font-size: 28px;
       font-weight: 900;
-      color: #66fcf1; /* Neon Cyan */
+      color: #ff2a2a; /* Neon Red */
       text-transform: uppercase;
       letter-spacing: 3px;
-      text-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
+      text-shadow: 0 0 10px rgba(255, 42, 42, 0.5);
     }
 
     nav ul {
@@ -62,7 +62,7 @@
     }
 
     nav a:hover {
-      color: #66fcf1;
+      color: #ff2a2a;
     }
 
     /* Hero Section */
@@ -73,7 +73,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      background: radial-gradient(circle at center, #1f2833 0%, #0b0c10 80%);
+      background: radial-gradient(circle at center, #2a0000 0%, #0a0000 80%);
       position: relative;
     }
 
@@ -86,8 +86,8 @@
       width: 100%;
       height: 100%;
       background-image: 
-        linear-gradient(rgba(102, 252, 241, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(102, 252, 241, 0.05) 1px, transparent 1px);
+        linear-gradient(rgba(255, 42, 42, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 42, 42, 0.08) 1px, transparent 1px);
       background-size: 40px 40px;
       z-index: 0;
     }
@@ -103,12 +103,12 @@
       text-transform: uppercase;
       letter-spacing: 5px;
       margin-bottom: 20px;
-      text-shadow: 0 0 20px #66fcf1, 0 0 40px #45a29e;
+      text-shadow: 0 0 20px #ff2a2a, 0 0 40px #aa0000;
     }
 
     .hero p {
       font-size: 1.5rem;
-      color: #45a29e;
+      color: #ff6666;
       margin-bottom: 50px;
       letter-spacing: 2px;
     }
@@ -121,14 +121,14 @@
       font-family: 'Orbitron', sans-serif;
       font-weight: 900;
       text-transform: uppercase;
-      color: #0b0c10;
-      background-color: #66fcf1;
-      border: 2px solid #66fcf1;
+      color: #0a0000;
+      background-color: #ff2a2a;
+      border: 2px solid #ff2a2a;
       border-radius: 4px;
       cursor: pointer;
       text-decoration: none;
       transition: all 0.3s ease-in-out;
-      box-shadow: 0 0 15px rgba(102, 252, 241, 0.6);
+      box-shadow: 0 0 15px rgba(255, 42, 42, 0.6);
       position: relative;
       overflow: hidden;
     }
@@ -136,8 +136,8 @@
     /* Button Hover Effects */
     .explore-btn:hover {
       background-color: transparent;
-      color: #66fcf1;
-      box-shadow: 0 0 25px rgba(102, 252, 241, 0.9), 0 0 50px rgba(102, 252, 241, 0.4) inset;
+      color: #ff2a2a;
+      box-shadow: 0 0 25px rgba(255, 42, 42, 0.9), 0 0 50px rgba(255, 42, 42, 0.4) inset;
       transform: translateY(-3px) scale(1.05);
     }
 
@@ -149,7 +149,7 @@
     @media (max-width: 768px) {
       .hero h1 { font-size: 3rem; }
       .hero p { font-size: 1rem; }
-      nav ul { display: none; /* Hide nav on mobile for simplicity in this demo */ }
+      nav ul { display: none; }
     }
   </style>
 </head>
