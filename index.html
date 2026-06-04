@@ -1,1 +1,180 @@
-<meta http-equiv="refresh" content="0; url=./catalog.html">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HPGameLibrary</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Reset and Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #0b0c10; /* Deep dark background */
+      color: #c5c6c7; /* Light grey text */
+      font-family: 'Orbitron', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 5vw;
+      background: rgba(11, 12, 16, 0.95);
+      border-bottom: 2px solid #66fcf1;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      color: #66fcf1; /* Neon Cyan */
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      text-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      color: #c5c6c7;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #66fcf1;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: radial-gradient(circle at center, #1f2833 0%, #0b0c10 80%);
+      position: relative;
+    }
+
+    /* Background decorative grid */
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(102, 252, 241, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(102, 252, 241, 0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 5rem;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px #66fcf1, 0 0 40px #45a29e;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      color: #45a29e;
+      margin-bottom: 50px;
+      letter-spacing: 2px;
+    }
+
+    /* The "Explore" Button */
+    .explore-btn {
+      display: inline-block;
+      padding: 18px 50px;
+      font-size: 1.5rem;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #0b0c10;
+      background-color: #66fcf1;
+      border: 2px solid #66fcf1;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 0 15px rgba(102, 252, 241, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Button Hover Effects */
+    .explore-btn:hover {
+      background-color: transparent;
+      color: #66fcf1;
+      box-shadow: 0 0 25px rgba(102, 252, 241, 0.9), 0 0 50px rgba(102, 252, 241, 0.4) inset;
+      transform: translateY(-3px) scale(1.05);
+    }
+
+    .explore-btn:active {
+      transform: translateY(2px) scale(0.98);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 3rem; }
+      .hero p { font-size: 1rem; }
+      nav ul { display: none; /* Hide nav on mobile for simplicity in this demo */ }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">HPGameLibrary</div>
+    <nav>
+      <ul>
+        <li><a href="https://hpgamelibrary.github.io/game-request.html">Request game</a></li>
+        <li><a href="https://hpgamelibrary.github.io/support">Support</a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="hero">
+    <div class="hero-content">
+      <h1>HPGameLibrary</h1>
+      <p>Small, but safe and working library of cracked games.</p>
+      
+      <a href="https://hpgamelibrary.github.io/catalog.html" class="explore-btn">Explore games</a>
+    </div>
+  </main>
+
+</body>
+</html>
