@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HPGameLibrary: Catalog</title>
+    <style>
+        /* Base styles for a clean interface */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #141414;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #E50914;
+        }
+
+        h1 {
+            margin: 0 0 15px 0;
+            color: #E50914;
+        }
+
+        /* Search Bar & Sort Styling */
+        .controls-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        #searchInput, #sortSelect {
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: 2px solid #333;
+            background-color: #222;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        #searchInput {
+            width: 80%;
+            max-width: 400px;
+        }
+
+        #sortSelect {
+            cursor: pointer;
+        }
+
+        #searchInput:focus, #sortSelect:focus {
+            border-color: #E50914;
+        }
+
+        #searchInput::placeholder {
+            color: #888;
+        }
+
+        /* Grid layout for the catalog cards */
+        .catalog-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 30px;
+            padding: 40px 20px;
+        }
+
+        /* Movie card styling */
+        .movie-card {
+            background-color: #2f2f2f;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+            transition: transform 0.2s;
+        }
+
+        .movie-card:hover {
+            transform: scale(1.05);
+        }
+
+        .movie-poster {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            background-color: #444; /* Fallback color */
+        }
+
+        .movie-info {
+            padding: 15px;
+        }
+
+        .movie-title {
+            font-size: 1.1rem;
+            margin: 0 0 10px 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .movie-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #b3b3b3;
+            margin-bottom: 8px;
+        }
+
+        .rating {
+            color: #ffb400;
+            font-weight: bold;
+        }
+
+        .movie-description {
+            font-size: 0.8rem;
+            color: #d2d2d2;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>HPGameLibrary Catalog</h1>
+        <div class="controls-container">
+            <input type="text" id="searchInput" placeholder="Search for games..." onkeyup="filterGames()">
+            <select id="sortSelect" onchange="sortGames()">
+                <option value="default">Default</option>
+                <option value="nameAsc">Name (Ascending)</option>
+                <option value="nameDesc">Name (Descending)</option>
+                <option value="trending" id="trendingOption">Trending (Loading RAWG Data...)</option>
+            </select>
+        </div>
+    </header>
+
+    <main class="catalog-container" id="catalog">
+        <!-- data-trending is set to 0 initially. The API will update it. -->
+        <article class="movie-card" data-trending="0">
+            <img class="movie-poster" src="https://cdn2.steamgriddb.com/grid/af0a25e27510f77d97634a6bbe653b13.jpg" alt="GTA V Poster">
+            <div class="movie-info">
+                <h2 class="movie-title">Grand Theft Auto V</h2>
+                <div class="movie-meta">
+                    <span class="year">2013</span>
+                    <span class="rating"></span>
+                </div>
+                <p class="movie-description"></p>
+                <a href="https://hpgamelibrary.github.io/games/GTA5" style="color: aqua;">Download game</a>
+            </div>
+        </article>
+
+        <article class="movie-card" data-trending="0">
+            <img class="movie-poster" src="https://cdn2.steamgriddb.com/grid/94f88ceb11d0e2e52a7344dc94648c75.png" alt="RDR Poster">
+            <div class="movie-info">
+                <h2 class="movie-title">Red Dead Redemption</h2>
+                <div class="movie-meta">
+                    <span class="year">2010</span>
+                    <span class="rating"></span>
+                </div>
+                <p class="movie-description"></p>
+                <a href="https://hpgamelibrary.github.io/games/RDR" style="color: aqua;">Download game</a>
+            </div>
+        </article>
+
+        <article class="movie-card" data-trending="0">
+            <img class="movie-poster" src="https://cdn2.steamgriddb.com/grid/3940304b536796dcc176aa83203a3955.png" alt="RDR2 Poster">
+            <div class="movie-info">
+                <h2 class="movie-title">Red Dead Redemption 2</h2>
+                <div class="movie-meta">
+                    <span class="year">2018</span>
+                    <span class="rating"></span>
+                </div>
+                <p class="movie-description"></p>
+                <a href="https://hpgamelibrary.github.io/games/RDR2" style="color: aqua;">Download game</a>
+            </div>
+        </article>
+
+        <article class="movie-card" data-trending="0">
+            <img class="movie-poster" src="https://cdn2.steamgriddb.com/grid/dc6ab89f835061d1d33e4e97cc60b126.jpg" alt="RE4 Poster">
+            <div class="movie-info">
+                <h2 class="movie-title">Resident Evil 4 Remake</h2>
+                <div class="movie-meta">
+                    <span class="year">2023</span>
+                    <span class="rating"></span>
+                </div>
+                <p class="movie-description"></p>
+                <a href="https://hpgamelibrary.github.io/games/RE4Remake/indec.html" style="color: aqua;">Download game</a>
+            </div>
+        </article>
+        
+        <article class="movie-card" data-trending="0">
+            <img class="movie-poster" src="https://shared.steamstatic.com/store_item_assets/steam/apps/883710/library_600x900_2x.jpg?t=1671156445" alt="RE2 Poster">
+            <div class="movie-info">
+                <h2 class="movie-title">Resident Evil 2 Remake</h2>
+                <div class="movie-meta">
+                    <span class="year">2019</span>
+                    <span class="rating"></span>
+                </div>
+                <p class="movie-description"></p>
+                <a href="https://hpgamelibrary.github.io/games/RE2Remake/" style="color: aqua;">Download game</a>
+            </div>
+        </article>
+        
+        <article class="movie-card" data-trending="0">
+            <img class="movie-poster" src="https://shared.steamstatic.com/store_item_assets/steam/apps/3764200/bde37e52add84267aeaf70c9f32d72381684d928/library_600x900_2x.jpg?t=1753863759" alt="RE9 Poster">
+            <div class="movie-info">
+                <h2 class="movie-title">Resident Evil Requiem</h2>
+                <div class="movie-meta">
+                    <span class="year">2026</span>
+                    <span class="rating"></span>
+                </div>
+                <p class="movie-description"></p>
+                <a href="https://gamedeep241.github.io/games/RE9/" style="color: aqua;">Download game</a>
+            </div>
+        </article>
+        
+        <article class="movie-card" data-trending="0">
+            <img class="movie-poster" src="https://cdn2.steamgriddb.com/grid/abaa9aa65a3f698cf1b3e51d4ffcb0f3.png" alt="Among Us Poster">
+            <div class="movie-info">
+                <h2 class="movie-title">Among US</h2>
+                <div class="movie-meta">
+                    <span class="year">2018</span>
+                    <span class="rating"></span>
+                </div>
+                <p class="movie-description"></p>
+                <a href="https://gamedeep241.github.io/games/amongus/" style="color: aqua;">Download game</a>
+            </div>
+        </article>
+        
+        <article class="movie-card" data-trending="0">
+            <img class="movie-poster" src="https://cdn2.steamgriddb.com/grid/9d38ff62f05682f657e877ef550b46dd.png" alt="RE3 Poster">
+            <div class="movie-info">
+                <h2 class="movie-title">Resident Evil 3 Remake</h2>
+                <div class="movie-meta">
+                    <span class="year">2020</span>
+                    <span class="rating"></span>
+                </div>
+                <p class="movie-description"></p>
+                <a href="https://hpgamelibrary.github.io/games/RE3Remake/" style="color: aqua;">Download game</a>
+            </div>
+        </article>
+        
+        <article class="movie-card" data-trending="0">
+            <img class="movie-poster" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgsy2jd0c2-jwDLEsS1QbtbSLlYhrjYwJ00E-HP0mxFGqRp-RiuVI2zbx-vubqAIjyBiAMYeMHOqURN3r9fDWpa-bTf9ymaEPFoVjAHwD_nhXM4INh50R1nVkWbtDgdYHeGLdkdNHbTWIDOKwXOjQMQYPuqJgfWz3_UqtHj1YgkzjG0Se4rVV-YbxDEGKUe/s1000/71E3WJx1W6L._AC_UF894,1000_QL80_.jpg" alt="FNAF Poster">
+            <div class="movie-info">
+                <h2 class="movie-title">FNAF Collection</h2>
+                <div class="movie-meta">
+                    <span class="year">2014</span>
+                    <span class="rating"></span>
+                </div>
+                <p class="movie-description"></p>
+                <a href="https://gamedeep241.github.io/games/FNAF_Collection/" style="color: aqua;">Download game</a>
+            </div>
+        </article>
+        
+        <article class="movie-card" data-trending="0">
+            <img class="movie-poster" src="https://shared.steamstatic.com/store_item_assets/steam/apps/3357650/ffe0d0b1778821e7e63b0a57ee8a16b8ab749497/library_600x900_2x.jpg?t=1749097394" alt="Pragmata Poster">
+            <div class="movie-info">
+                <h2 class="movie-title">PRAGMATA</h2>
+                <div class="movie-meta">
+                    <span class="year">2026</span>
+                    <span class="rating"></span>
+                </div>
+                <p class="movie-description"></p>
+                <a href="https://gamedeep241.github.io/games/PRAGMATA/iodex.html" style="color: aqua;">Download game</a>
+            </div>
+        </article>
+        
+        <article class="movie-card" data-trending="0">
+            <img class="movie-poster" src="https://shared.steamstatic.com/store_item_assets/steam/apps/418370/library_600x900_2x.jpg?t=1582692054" alt="RE7 Poster">
+            <div class="movie-info">
+                <h2 class="movie-title">Resident Evil 7: Biohazard</h2>
+                <div class="movie-meta">
+                    <span class="year">2017</span>
+                    <span class="rating"></span>
+                </div>
+                <p class="movie-description"></p>
+                <a href="https://hpgamelibrary.github.io/games/RE7" style="color: aqua;">Download game</a>
+            </div>
+        </article>
+        
+        <article class="movie-card" data-trending="0">
+            <img class="movie-poster" src="https://shared.steamstatic.com/store_item_assets/steam/apps/1196590/library_600x900_2x.jpg?t=1666762266" alt="RE Village Poster">
+            <div class="movie-info">
+                <h2 class="movie-title">Resident Evil Village</h2>
+                <div class="movie-meta">
+                    <span class="year">2021</span>
+                    <span class="rating"></span>
+                </div>
+                <p class="movie-description"></p>
+                <a href="https://hpgamelibrary.github.io/games/RE8" style="color: aqua;">Download game</a>
+            </div>
+        </article>
+        
+        <article class="movie-card" data-trending="0">
+            <img class="movie-poster" src="https://cdn2.steamgriddb.com/thumb/f7e560ff0b4ff781bd6d3b2ec442daee.jpg" alt="GTA IV Poster">
+            <div class="movie-info">
+                <h2 class="movie-title">Grand Theft Auto IV</h2>
+                <div class="movie-meta">
+                    <span class="year">2008</span>
+                    <span class="rating"></span>
+                </div>
+                <p class="movie-description"></p>
+                <a href="https://hpgamelibrary.github.io/games/GTA4" style="color: aqua;">Download game</a>
+            </div>
+        </article>
+        
+        <article class="movie-card" data-trending="0">
+            <img class="movie-poster" src="https://cdn2.steamgriddb.com/grid/005c3dcb8b95f0ead48dcef46d7a934b.png" alt="FH6 Poster">
+            <div class="movie-info">
+                <h2 class="movie-title">Forza Horizon 6</h2>
+                <div class="movie-meta">
+                    <span class="year">2026</span>
+                    <span class="rating"></span>
+                </div>
+                <p class="movie-description"></p>
+                <a href="https://hpgamelibrary.github.io/games/FH6" style="color: aqua;">Download game</a>
+            </div>
+        </article>
+        
+        <article class="movie-card" data-trending="0">
+            <img class="movie-poster" src="https://cdn2.steamgriddb.com/grid/0e98729842c746b65e68c204d5c17c2a.jpg" alt="FH3 Poster">
+            <div class="movie-info">
+                <h2 class="movie-title">Forza Horizon 3</h2>
+                <div class="movie-meta">
+                    <span class="year">2016</span>
+                    <span class="rating"></span>
+                </div>
+                <p class="movie-description"></p>
+                <a href="https://hpgamelibrary.github.io/games/FH3" style="color: aqua;">Download game</a>
+            </div>
+        </article>
+        
+        <article class="movie-card" data-trending="0">
+            <img class="movie-poster" src="https://cdn2.steamgriddb.com/grid/ab704bd383ad12c1e7f6bcaa0da165b0.png" alt="FH4 Poster">
+            <div class="movie-info">
+                <h2 class="movie-title">Forza Horizon 4</h2>
+                <div class="movie-meta">
+                    <span class="year">2018</span>
+                    <span class="rating"></span>
+                </div>
+                <p class="movie-description"></p>
+                <a href="https://hpgamelibrary.github.io/games/FH4" style="color: aqua;">Download game</a>
+            </div>
+        </article>
+        
+        <article class="movie-card" data-trending="0">
+            <img class="movie-poster" src="https://cdn2.steamgriddb.com/grid/038a5b2bc50685ad5a527a818a00b6df.png" alt="Chained Together Poster">
+            <div class="movie-info">
+                <h2 class="movie-title">Chained Together</h2>
+                <div class="movie-meta">
+                    <span class="year">2024</span>
+                    <span class="rating"></span>
+                </div>
+                <p class="movie-description"></p>
+                <a href="https://gamedeep241.github.io/games/ChainedTogether/" style="color: aqua;">Download game</a>
+            </div>
+        </article>
+        
+        <article class="movie-card" data-trending="0">
+            <img class="movie-poster" src="https://cdn2.steamgriddb.com/grid/38969e6a55cd30bbcda8b2ec943bb5ad.png" alt="RE5 Poster">
+            <div class="movie-info">
+                <h2 class="movie-title">Resident Evil 5</h2>
+                <div class="movie-meta">
+                    <span class="year">2009</span>
+                    <span class="rating"></span>
+                </div>
+                <p class="movie-description"></p>
+                <a href="https://gamedeep241.github.io/games/RE5" style="color: aqua;">Download game</a>
+            </div>
+        </article>
+        
+        <article class="movie-card" data-trending="0">
+            <img class="movie-poster" src="https://cdn2.steamgriddb.com/grid/6169019826fe999b0eba05cee8c75c78.png" alt="RE6 Poster">
+            <div class="movie-info">
+                <h2 class="movie-title">Resident Evil 6</h2>
+                <div class="movie-meta">
+                    <span class="year">2012</span>
+                    <span class="rating"></span>
+                </div>
+                <p class="movie-description"></p>
+                <a href="https://hpgamelibrary.github.io/games/RE6" style="color: aqua;">Download game</a>
+            </div>
+        </article>
+        
+        <article class="movie-card" data-trending="0">
+            <img class="movie-poster" src="https://shared.steamstatic.com/store_item_assets/steam/apps/284160/library_600x900_2x.jpg?t=1743607204" alt="BeamNg Poster">
+            <div class="movie-info">
+                <h2 class="movie-title">BeamNg.drive</h2>
+                <div class="movie-meta">
+                    <span class="year">2015</span>
+                    <span class="rating"></span>
+                </div>
+                <p class="movie-description"></p>
+                <a href="https://hpgamelibrary.github.io/games/BeamNg-drive" style="color: aqua;">Download game</a>
+            </div>
+        </article>
+        
+        <article class="movie-card" data-trending="0">
+            <img class="movie-poster" src="https://shared.steamstatic.com/store_item_assets/steam/apps/1091500/fc7064f4a8ee2960eb51f5872d7990d771f26d2e/library_600x900_2x.jpg?t=1753355535" alt="Cyberpunk Poster">
+            <div class="movie-info">
+                <h2 class="movie-title">Cyberpunk 2077</h2>
+                <div class="movie-meta">
+                    <span class="year">2020</span>
+                    <span class="rating"></span>
+                </div>
+                <p class="movie-description"></p>
+                <a href="https://hpgamelibrary.github.io/games/Cyberpunk2077" style="color: aqua;">Download game</a>
+            </div>
+        </article>
+        
+        <article class="movie-card" data-trending="0">
+            <img class="movie-poster" src="https://i.ibb.co/PvC7qNjM/library-600x900-2x.jpg" alt="Black Myth Wukong Poster">
+            <div class="movie-info">
+                <h2 class="movie-title">Black Myth Wukong</h2>
+                <div class="movie-meta">
+                    <span class="year">2024</span>
+                    <span class="rating"></span>
+                </div>
+                <p class="movie-description"></p>
+                <a href="https://hpgamelibrary.github.io/games/BlackMythWukong" style="color: aqua;">Download game</a>
+            </div>
+        </article>
+        
+        <article class="movie-card" data-trending="0">
+            <img class="movie-poster" src="https://i.ibb.co/5W59GSkZ/23f0adac73f4781149096117bf359a33-1.jpg" alt="GTA Trilogy Poster">
+            <div class="movie-info">
+                <h2 class="movie-title">Grand Theft Auto: The Original Trilogy</h2>
+                <div class="movie-meta">
+                    <span class="year">2004</span>
+                    <span class="rating"></span>
+                </div>
+                <p class="movie-description"></p>
+                <a href="https://hpgamelibrary.github.io/games/GTATrilogy" style="color: aqua;">Download game</a>
+            </div>
+        </article>
+
+        <article class="movie-card" data-trending="0">
+            <img class="movie-poster" src="https://shared.steamstatic.com/store_item_assets/steam/apps/3768760/1159a696d257cbeb3f4479be3466cfba2ae938a0/library_600x900_2x.jpg?t=1763663780" alt="007 First Light Poster">
+            <div class="movie-info">
+                <h2 class="movie-title">007 First Light</h2>
+                <div class="movie-meta">
+                    <span class="year">2026</span>
+                    <span class="rating"></span>
+                </div>
+                <p class="movie-description"></p>
+                <a href="https://hpgamelibrary.github.io/games/007FirstLight" style="color: aqua;">Download game</a>
+            </div>
+        </article>
+
+        <article class="movie-card" data-trending="0">
+            <img class="movie-poster" src="https://i.ibb.co/pv8yFDsw/6fe386b00d7a58df2ee236b3bf339e6b.jpg" alt="Uncharted 4 Poster">
+            <div class="movie-info">
+                <h2 class="movie-title">Uncharted 4: A Thief's End</h2>
+                <div class="movie-meta">
+                    <span class="year">2016</span>
+                    <span class="rating"></span>
+                </div>
+                <p class="movie-description"></p>
+                <a href="https://hpgamelibrary.github.io/games/Uncharted4" style="color: aqua;">Download game</a>
+            </div>
+        </article>
+        
+    </main>
+
+    <script>
+        // --- ADD YOUR RAWG API KEY HERE ---
+        const RAWG_API_KEY = '316aad80b7514cd59b7e6e90b9b10ad1'; 
+
+        document.addEventListener("DOMContentLoaded", () => {
+            window.originalCatalogOrder = Array.from(document.querySelectorAll('.movie-card'));
+            
+            // Only attempt to fetch if the key has been replaced
+            if (RAWG_API_KEY !== 'INSERT_YOUR_API_KEY_HERE') {
+                fetchRAWGTrendingData();
+            } else {
+                document.getElementById('trendingOption').textContent = "Trending (Missing API Key)";
+            }
+        });
+
+        async function fetchRAWGTrendingData() {
+            let cards = document.querySelectorAll('.movie-card');
+            let fetchPromises = [];
+
+            cards.forEach(card => {
+                let title = card.querySelector('.movie-title').textContent;
+                let searchQuery = encodeURIComponent(title);
+                let url = `https://api.rawg.io/api/games?key=${RAWG_API_KEY}&search=${searchQuery}`;
+
+                // Create a promise for each fetch request
+                let promise = fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.results && data.results.length > 0) {
+                            // RAWG's "added" count represents the number of users who own the game, making it a great metric for trending/popularity.
+                            let popularityScore = data.results[0].added || 0;
+                            card.setAttribute('data-trending', popularityScore);
+                        }
+                    })
+                    .catch(error => console.error("Failed to fetch data for " + title, error));
+                
+                fetchPromises.push(promise);
+            });
+
+            // Wait for all API calls to finish, then update the dropdown text
+            await Promise.all(fetchPromises);
+            document.getElementById('trendingOption').textContent = "Trending";
+        }
+
+        function filterGames() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.querySelectorAll('.movie-card');
+            
+            cards.forEach(card => {
+                let title = card.querySelector('.movie-title').textContent.toLowerCase();
+                
+                if (title.includes(input)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+
+        function sortGames() {
+            let catalog = document.getElementById('catalog');
+            let cards = Array.from(catalog.querySelectorAll('.movie-card'));
+            let sortOption = document.getElementById('sortSelect').value;
+
+            if (sortOption === "default") {
+                // Restore original setup
+                window.originalCatalogOrder.forEach(card => catalog.appendChild(card));
+                return;
+            }
+
+            cards.sort((a, b) => {
+                let titleA = a.querySelector('.movie-title').textContent.toLowerCase();
+                let titleB = b.querySelector('.movie-title').textContent.toLowerCase();
+                
+                if (sortOption === "nameAsc") {
+                    return titleA.localeCompare(titleB);
+                } 
+                else if (sortOption === "nameDesc") {
+                    return titleB.localeCompare(titleA);
+                } 
+                else if (sortOption === "trending") {
+                    // Sorting by the fetched data-trending attribute (highest value first)
+                    let trendA = parseInt(a.getAttribute('data-trending') || 0);
+                    let trendB = parseInt(b.getAttribute('data-trending') || 0);
+                    return trendB - trendA;
+                }
+            });
+
+            // Empty the current catalog and append sorted cards
+            catalog.innerHTML = "";
+            cards.forEach(card => catalog.appendChild(card));
+        }
+    </script>
+
+</body>
+</html>

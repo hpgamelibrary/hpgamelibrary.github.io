@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HPGameLibrary</title>
+  <title>HPGameLibrary - Socials</title>
   
+  <!-- Orbitron Font Import -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
   
   <style>
@@ -16,8 +17,8 @@
     }
 
     body {
-      background-color: #0a0000; /* Deep dark red-black background */
-      color: #c5c6c7; /* Light grey text */
+      background-color: #0a0000; 
+      color: #c5c6c7; 
       font-family: 'Orbitron', sans-serif;
       overflow-x: hidden;
     }
@@ -29,7 +30,7 @@
       align-items: center;
       padding: 20px 5vw;
       background: rgba(10, 0, 0, 0.95);
-      border-bottom: 2px solid #ff2a2a; /* Neon Red */
+      border-bottom: 2px solid #ff2a2a; 
       position: fixed;
       width: 100%;
       top: 0;
@@ -39,7 +40,7 @@
     .logo {
       font-size: 28px;
       font-weight: 900;
-      color: #ff2a2a; /* Neon Red */
+      color: #ff2a2a; 
       text-transform: uppercase;
       letter-spacing: 3px;
       text-shadow: 0 0 10px rgba(255, 42, 42, 0.5);
@@ -65,9 +66,9 @@
       color: #ff2a2a;
     }
 
-    /* Hero Section */
+    /* Hero Section / Socials Layout */
     .hero {
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -75,6 +76,7 @@
       text-align: center;
       background: radial-gradient(circle at center, #2a0000 0%, #0a0000 80%);
       position: relative;
+      padding-top: 100px; /* Space for fixed header */
     }
 
     /* Background decorative grid */
@@ -95,29 +97,54 @@
     .hero-content {
       position: relative;
       z-index: 1;
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Profile Styles */
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid #ff2a2a;
+      box-shadow: 0 0 20px rgba(255, 42, 42, 0.6);
+      margin-bottom: 20px;
+      object-fit: cover;
     }
 
     .hero h1 {
-      font-size: 5rem;
+      font-size: 2.5rem;
       color: #ffffff;
       text-transform: uppercase;
-      letter-spacing: 5px;
-      margin-bottom: 20px;
-      text-shadow: 0 0 20px #ff2a2a, 0 0 40px #aa0000;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 15px #ff2a2a;
     }
 
     .hero p {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       color: #ff6666;
-      margin-bottom: 50px;
+      margin-bottom: 40px;
       letter-spacing: 2px;
     }
 
-    /* The "Explore" Button */
-    .explore-btn {
-      display: inline-block;
-      padding: 18px 50px;
-      font-size: 1.5rem;
+    /* Social Links Container */
+    .social-links {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+    }
+
+    /* The Social Buttons (Adapted from Explore Button) */
+    .social-btn {
+      display: block;
+      width: 100%;
+      padding: 15px 20px;
+      font-size: 1.2rem;
       font-family: 'Orbitron', sans-serif;
       font-weight: 900;
       text-transform: uppercase;
@@ -134,22 +161,23 @@
     }
 
     /* Button Hover Effects */
-    .explore-btn:hover {
+    .social-btn:hover {
       background-color: transparent;
       color: #ff2a2a;
       box-shadow: 0 0 25px rgba(255, 42, 42, 0.9), 0 0 50px rgba(255, 42, 42, 0.4) inset;
       transform: translateY(-3px) scale(1.05);
     }
 
-    .explore-btn:active {
+    .social-btn:active {
       transform: translateY(2px) scale(0.98);
     }
 
     /* Responsive Design */
     @media (max-width: 768px) {
-      .hero h1 { font-size: 3rem; }
+      .hero h1 { font-size: 2rem; }
       .hero p { font-size: 1rem; }
       nav ul { display: none; }
+      .hero-content { padding: 0 20px; }
     }
   </style>
 </head>
@@ -159,20 +187,25 @@
     <div class="logo">HPGameLibrary</div>
     <nav>
       <ul>
-        <li><a href="./socials/">Socials</a></li>
+        <li><a href="https://hpgamelibrary.github.io/">Home</a></li>
         <li><a href="https://hpgamelibrary.github.io/support">Support</a></li>
         <li><a href="https://hpgamelibrary.github.io/game-request.html">Request game</a></li>
-        <li><a href="./emails.txt"></a></li>
       </ul>
     </nav>
   </header>
 
   <main class="hero">
     <div class="hero-content">
-      <h1>HPGameLibrary</h1>
-      <p>Small, but safe and working library of cracked games.</p>
+      <!-- Replace the src with your actual profile image link -->
+      <img src="https://yt3.googleusercontent.com/d7mwFIoD6gS_sh2RtpmiSPpXm6D0NVWg4A-aFRx1P24Pkq9aqdVU5Zy_oDW6mrOYmC-j7tMCXg=s160-c-k-c0x00ffffff-no-rj" alt="Profile Picture" class="profile-pic">
       
-      <a href="https://hpgamelibrary.github.io/catalog_new.html" class="explore-btn">Explore games</a>
+      <h1>HPGameLibrary</h1>
+      <p>Socials</p>
+      
+      <div class="social-links">
+        <a href="./instagram" class="social-btn">Instagram - @hpgamelibrary</a>
+        <a href="./youtube" class="social-btn">YouTube - @HPGameLibrary</a>
+      </div>
     </div>
   </main>
 
