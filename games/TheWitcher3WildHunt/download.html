@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0a0a0a; /* Deep black background */
+            color: #e0e0e0; /* Light gray text for readability */
+            margin: 0;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #141414; /* Dark gray container */
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.15); /* Subtle red glow */
+            border: 1px solid #330000; /* Dark red border */
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #ff3333; /* Bright red heading */
+            border-bottom: 2px solid #331111;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border-bottom: 1px solid #2a2a2a; /* Dark border lines */
+            padding: 15px 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #000000;
+            font-weight: 600;
+            color: #ff4444; /* Red table headers */
+        }
+
+        tr:hover {
+            background-color: #2b0000; /* Dark red highlight on hover */
+        }
+
+        .file-name {
+            font-weight: 500;
+            color: #ffffff; /* Crisp white for file names */
+        }
+
+        .file-size, .file-host {
+            color: #aaaaaa;
+        }
+
+        .host-badge {
+            background-color: #330000; /* Dark red background */
+            color: #ff9999; /* Light pinkish-red text */
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: 500;
+            display: inline-block;
+            border: 1px solid #550000;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #990000; /* Crimson red button */
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .download-btn:hover {
+            background-color: #e60000; /* Bright red on hover */
+            box-shadow: 0 0 10px rgba(230, 0, 0, 0.5); /* Button glow */
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 700px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            thead tr {
+                display: none;
+            }
+            td {
+                position: relative;
+                padding-left: 45%;
+                text-align: right;
+            }
+            td::before {
+                position: absolute;
+                left: 10px;
+                width: 40%;
+                padding-right: 10px;
+                white-space: nowrap;
+                text-align: left;
+                font-weight: bold;
+                color: #ff4444; /* Red labels on mobile */
+            }
+            /* Updated to account for 4 columns */
+            td:nth-of-type(1)::before { content: "File Name"; }
+            td:nth-of-type(2)::before { content: "Size"; }
+            td:nth-of-type(3)::before { content: "Hosted By"; }
+            td:nth-of-type(4)::before { content: "Action"; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>DOWNLOADS OF The Witcher 3: Wild Hunt</h2>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>File Name</th>
+                    <th>Size</th>
+                    <th>Hosted By</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="file-name">HP-1.bin</td>
+                    <td class="file-size">26.19 GB</td>
+                    <td class="file-host"><span class="host-badge">drive.google.com</span></td>
+                    <td>
+                        <a href="https://drive.google.com/file/d/1TMC0ZwC85ygUNDk4nwkCHBbCNZgaD8_P/view?usp=drive_link" class="download-btn" download>Download</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="file-name">HP-2.bin</td>
+                    <td class="file-size">14.91 GB</td>
+                    <td class="file-host"><span class="host-badge">drive.google.com</span></td>
+                    <td>
+                        <a href="https://drive.google.com/file/d/10C5Rm7WP7rSM-BGuxLxVFhVK-o7uDYOp/view?usp=sharing" class="download-btn" download>Download</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="file-name">setup.exe</td>
+                    <td class="file-size">3.7 MB</td>
+                    <td class="file-host"><span class="host-badge">archive.org</span></td>
+                    <td>
+                        <a href="https://web.archive.org/web/20260717171541if_/https://download1649.mediafire.com/l66m5mm5n35gz7HOQXzugGnqNY-LA_WtmIh20jd0N0_wQ2zxHIppGNy6_95h45c32-3IA_7FDHHLfTSjuxR48YxNMexgM1F8RkiCjbz1iC6N4CdeiPx4LRkXogTpZlOgYbDy4Oj98__4W2VyegJsecJ9tg5Ti7M9I36vL-4wbTeCD_W4/dmz4a66ese6xa30/setup.exe" class="download-btn" target="_blank">Download</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

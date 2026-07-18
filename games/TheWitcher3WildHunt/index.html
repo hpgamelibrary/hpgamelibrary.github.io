@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Witcher 3 Wild Hunt - (v1.31) Game Of The Year Edition</title>
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-panel: #141414;
+            --accent-red: #c62828;
+            --accent-red-hover: #b71c1c;
+            --text-main: #e0e0e0;
+            --text-muted: #9e9e9e;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: var(--bg-panel);
+            border-top: 5px solid var(--accent-red);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+            padding: 30px;
+        }
+
+        .header-logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header-logo img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            font-size: 2.2em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 span {
+            color: var(--accent-red);
+            display: block;
+            font-size: 0.55em;
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            color: var(--accent-red);
+            border-left: 4px solid var(--accent-red);
+            padding-left: 10px;
+            margin-top: 40px;
+            font-size: 1.5em;
+        }
+
+        .game-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .game-cover {
+            flex: 1 1 300px;
+            max-width: 333px;
+        }
+
+        .game-cover img {
+            width: 100%;
+            border: 2px solid #333;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(200, 40, 40, 0.2);
+        }
+
+        .game-details {
+            flex: 2 1 400px;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #222;
+        }
+
+        .game-details p {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        .game-details strong {
+            color: var(--accent-red);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #333;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--accent-red);
+            color: #fff;
+            width: 50%;
+        }
+
+        td strong {
+            color: var(--accent-red);
+        }
+
+        .features-list {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        .features-list li {
+            margin-bottom: 12px;
+        }
+
+        .features-list strong {
+            color: var(--accent-red);
+        }
+
+        .download-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background-color: var(--accent-red);
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(198, 40, 40, 0.4);
+        }
+
+        .download-btn:hover {
+            background-color: var(--accent-red-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(198, 40, 40, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .game-header {
+                flex-direction: column;
+                align-items: center;
+            }
+            th, td {
+                display: block;
+                width: 100%;
+            }
+            th {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-logo">
+            <img src="https://i.ibb.co/ympMQcwY/icon.png" alt="Release Icon" height="52" width="301" />
+        </div>
+
+        <h1>The Witcher 3: Wild Hunt<span>(v1.31) Game Of The Year Edition</span></h1>
+
+        <div class="game-header">
+            <div class="game-cover">
+                <img src="https://cdn2.steamgriddb.com/grid/e131fa896265671584c9b01cb0ed51cd.png" alt="The Witcher 3: Wild Hunt Cover" />
+            </div>
+            
+            <div class="game-details">
+                <h2>Game Information</h2>
+                <p><strong>Title:</strong> The Witcher 3: Wild Hunt</p>
+                <p><strong>Developer:</strong> CD Projekt Red</p>
+                <p><strong>Publisher:</strong> CD Projekt Red</p>
+                <p><strong>Franchise:</strong> Witcher</p>
+                <p><strong>Release Date:</strong> 19 May, 2015</p>
+            </div>
+        </div>
+
+        <h2>System Requirements</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Minimum Requirements</th>
+                    <th>Recommended Requirements</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>CPU:</strong> AMD A10-5800K / Intel Core i5-2500K</td>
+                    <td><strong>CPU:</strong> AMD Ryzen 5 1600 / Intel i5-7400</td>
+                </tr>
+                <tr>
+                    <td><strong>RAM:</strong> 6GB</td>
+                    <td><strong>RAM:</strong> 12GB</td>
+                </tr>
+                <tr>
+                    <td><strong>Video Card:</strong> NVIDIA GeForce GTX 660 / AMD Radeon HD 7870</td>
+                    <td><strong>Video Card:</strong> NVIDIA GeForce GTX 1070 / AMD Radeon RX 480</td>
+                </tr>
+                <tr>
+                    <td><strong>Dedicated Video RAM:</strong> 2GB</td>
+                    <td><strong>Dedicated Video RAM:</strong> 6GB</td>
+                </tr>
+                <tr>
+                    <td><strong>Graphics API:</strong> DirectX 11</td>
+                    <td><strong>Graphics API:</strong> DirectX 11</td>
+                </tr>
+                <tr>
+                    <td><strong>OS:</strong> Windows 7 (64 bit)</td>
+                    <td><strong>OS:</strong> Windows 10 (64 bit)</td>
+                </tr>
+                <tr>
+                    <td><strong>Storage:</strong> 70GB</td>
+                    <td><strong>Storage:</strong> 75GB</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Repack Features</h2>
+        <ul class="features-list">
+            <li><strong>Based on:</strong> The.Witcher.3.Wild.Hunt-XATAB</li>
+            <li><strong>Version:</strong> 1.31</li>
+            <li>Hearts of stone expansion, Blood and wine expansion, and all 16 DLCs included</li>
+            <li>DRM free</li>
+            <li><strong>Language Text:</strong> English, French, German, Italian, Spanish - Spain, Arabic, Russian, Polish, Portuguese - Brazil, Spanish - Latin America, Japanese, Korean, Simplified Chinese, Traditional Chinese</li>
+            <li><strong>Language Audio:</strong> English, French, German, Italian, Spanish - Spain, Japanese, Portuguese - Brazil, Russian, Spanish - Latin America, Simplified Chinese</li>
+            <li>Language can be changed in-game</li>
+            <li><strong>Repack Size:</strong> 35 GB</li>
+            <li><strong>Final Size:</strong> 35 GB</li>
+            <li>Uncompressed repack, Nothing removed</li>
+        </ul>
+
+        <div class="download-section">
+            <a href="./download.html" target="_blank" rel="noopener noreferrer" class="download-btn">Download Game</a>
+        </div>
+    </div>
+
+</body>
+</html>
