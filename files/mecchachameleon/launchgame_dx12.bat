@@ -21,5 +21,5 @@ cd game
 cd Chameleon
 cd Binaries
 cd Win64
-PenguinHotel-Win64-Shipping.exe -dx11
+PenguinHotel-Win64-Shipping.exe
 exit
