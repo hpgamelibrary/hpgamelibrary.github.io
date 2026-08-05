@@ -6,9 +6,11 @@ timeout /t 1 >NUL
 echo Based on STEAMCMD and OFME
 timeout /t 3 >NUL
 steamcmd.exe +login ydtdo32097 PzIf3P1GXw2dEJ +force_install_dir .\game\ +app_update 4704690 validate +logout +quit
-title DO NOT CLOSE THIS WINDOW
 rmdir /s /q ".\logs"
 xcopy ".\crack\*" ".\game\" /s /e /h /y /i
+timeout /t 1 >NUL
+echo GAME IS RUNNING
+echo DO NOT CLOSE THIS WINDOW
 cd game
 cd Chameleon
 cd Binaries
