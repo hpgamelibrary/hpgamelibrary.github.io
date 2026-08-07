@@ -1,5 +1,6 @@
 @echo off
 cd ..
+mkdir original
 title MECCHA CHAMELEON up-to-date launcher
 echo MECCHA CHAMELEON launcher by GAMEDEEP. Always up-to-date.
 timeout /t 1 >NUL
