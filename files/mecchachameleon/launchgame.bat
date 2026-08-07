@@ -1,5 +1,6 @@
 @echo off
 cd ..
+mkdir original
 title MECCHA CHAMELEON up-to-date launcher
 echo MECCHA CHAMELEON launcher by GAMEDEEP. Always up-to-date.
 timeout /t 1 >NUL
@@ -14,7 +15,7 @@ del steamcmd.exe.old
 del crashhandler64.dll.old
 del steamcmd.exe.1.delete
 xcopy ".\game\Engine\Binaries\ThirdParty\Steamworks\Steamv157\Win64\*" ".\original\Engine\Binaries\ThirdParty\Steamworks\Steamv157\Win64\" /s /e /h /y /i
-xcopy ".\game\Chameleon\Binaries\Win64\*" ".\original\Chameleon\Binaries\Win64\" /s /e /h /y /i
+xcopy ".\game\Chameleon\Binaries\Win64\*" ".\original\Chameleon\Binaries\Win64\" /s /e /h /y /i /EXCLUDE:xcopy_exclude.txt
 xcopy ".\crack\*" ".\game\" /s /e /h /y /i
 timeout /t 1 >NUL
 echo GAME IS RUNNING
