@@ -1,6 +1,8 @@
 @echo off
 cd ..
 mkdir original
+xcopy ".\original\Engine\Binaries\ThirdParty\Steamworks\Steamv157\Win64\*" ".\game\Engine\Binaries\ThirdParty\Steamworks\Steamv157\Win64\" /s /e /h /y /i
+xcopy ".\original\Chameleon\Binaries\Win64\*" ".\game\Chameleon\Binaries\Win64\" /s /e /h /y /i
 title MECCHA CHAMELEON up-to-date launcher
 echo MECCHA CHAMELEON launcher by GAMEDEEP. Always up-to-date.
 timeout /t 1 >NUL
