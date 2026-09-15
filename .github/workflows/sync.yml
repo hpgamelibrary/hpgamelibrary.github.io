@@ -1,0 +1,28 @@
+name: Scheduled Upstream Sync
+
+on:
+  schedule:
+    # Runs at 00:00 UTC every day (Adjust CRON expression as needed)
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allows you to trigger the sync manually from the Actions tab
+
+jobs:
+  sync_latest_from_upstream:
+    runs-on: ubuntu-latest
+    name: Sync latest commits from upstream
+
+    steps:
+    # Step 1: Checkout the target branch of your fork
+    - name: Checkout target branch
+      uses: actions/checkout@v4
+      with:
+        ref: main # Change to master or your default branch if different
+
+    # Step 2: Sync with upstream
+    - name: Sync upstream changes
+      uses: aormsby/Fork-Sync-With-Upstream-action@v3.4
+      with:
+        upstream_repository: ORIGINAL_OWNER/ORIGINAL_REPO # Replace with the source repo path
+        upstream_branch: main                             # Source branch to pull from
+        target_branch: main                               # Your fork's branch
+        github_token: ${{ secrets.GITHUB_TOKEN }}
