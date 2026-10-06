@@ -146,6 +146,7 @@
 
         /* Movie card styling - Updated to match theme */
         .movie-card {
+            position: relative;
             display: block; 
             text-decoration: none; 
             color: inherit; 
@@ -166,14 +167,32 @@
             background-color: rgba(25, 0, 0, 0.85);
         }
 
-        .movie-poster {
-            width: 100%;
-            height: 320px;
-            object-fit: cover;
-            background-color: #111; 
-            border-bottom: 1px solid #330000;
-            transition: border-color 0.3s;
+        /* Online Badge styling matching reference image */
+        .online-badge {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #9b4dca;
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            padding: 4px 10px;
+            border-bottom-right-radius: 4px;
+            z-index: 2;
+            text-transform: capitalize;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+            pointer-events: none;
         }
+
+.movie-poster {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    background-color: #111;
+    border-bottom: 1px solid #330000;
+    transition: border-color 0.3s;
+}
         
         .movie-card:hover .movie-poster {
             border-bottom: 1px solid #ff2a2a;
@@ -330,6 +349,7 @@
         </a>
         
         <a href="https://gamedeep241.github.io/games/amongus/" class="movie-card" data-trending="0">
+            <span class="online-badge">Online</span>
             <img class="movie-poster" src="https://cdn2.steamgriddb.com/grid/abaa9aa65a3f698cf1b3e51d4ffcb0f3.png" alt="Among Us Poster">
             <div class="movie-info">
                 <h2 class="movie-title">Among US</h2>
@@ -433,7 +453,8 @@
             </div>
         </a>
         
-        <a href="/games/FH3" class="movie-card" data-trending="0">
+        <a href="https://gamedeep241.github.io/games/FH3/" class="movie-card" data-trending="0">
+            <span class="online-badge">Online</span>
             <img class="movie-poster" src="https://cdn2.steamgriddb.com/grid/0e98729842c746b65e68c204d5c17c2a.jpg" alt="FH3 Poster">
             <div class="movie-info">
                 <h2 class="movie-title">Forza Horizon 3</h2>
@@ -460,6 +481,7 @@
         </a>
         
         <a href="https://gamedeep241.github.io/games/ChainedTogether/" class="movie-card" data-trending="0">
+            <span class="online-badge">Online</span>
             <img class="movie-poster" src="https://cdn2.steamgriddb.com/grid/038a5b2bc50685ad5a527a818a00b6df.png" alt="Chained Together Poster">
             <div class="movie-info">
                 <h2 class="movie-title">Chained Together</h2>
@@ -473,6 +495,7 @@
         </a>
         
         <a href="https://gamedeep241.github.io/games/RE5" class="movie-card" data-trending="0">
+            <span class="online-badge">Online</span>
             <img class="movie-poster" src="https://cdn2.steamgriddb.com/grid/38969e6a55cd30bbcda8b2ec943bb5ad.png" alt="RE5 Poster">
             <div class="movie-info">
                 <h2 class="movie-title">Resident Evil 5</h2>
@@ -486,6 +509,7 @@
         </a>
         
         <a href="/games/RE6" class="movie-card" data-trending="0">
+            <span class="online-badge">Online</span>
             <img class="movie-poster" src="https://cdn2.steamgriddb.com/grid/6169019826fe999b0eba05cee8c75c78.png" alt="RE6 Poster">
             <div class="movie-info">
                 <h2 class="movie-title">Resident Evil 6</h2>
@@ -499,6 +523,7 @@
         </a>
         
         <a href="/games/BeamNg-drive" class="movie-card" data-trending="0">
+            <span class="online-badge">Online</span>
             <img class="movie-poster" src="https://shared.steamstatic.com/store_item_assets/steam/apps/284160/library_600x900_2x.jpg?t=1743607204" alt="BeamNg Poster">
             <div class="movie-info">
                 <h2 class="movie-title">BeamNg.drive</h2>
@@ -576,8 +601,8 @@
             </div>
         </a>
 
-
         <a href="https://gamedeep241.github.io/games/AWayOut/" class="movie-card" data-trending="0">
+            <span class="online-badge">Online</span>
             <img class="movie-poster" src="https://shared.steamstatic.com/store_item_assets/steam/apps/1222700/library_600x900_2x.jpg?t=1598570429" alt="A Way Out Poster">
             <div class="movie-info">
                 <h2 class="movie-title">A Way Out</h2>
@@ -604,6 +629,7 @@
         </a>
 
         <a href="https://gamedeep241.github.io/games/MECCHACHAMELEON/" class="movie-card" data-trending="0">
+            <span class="online-badge">Online</span>
             <img class="movie-poster" src="https://shared.steamstatic.com/store_item_assets/steam/apps/4704690/ac3c3c6d61e772101de5f95ac08b425e1b878ca8/library_capsule_2x.jpg?t=1781024496">
             <div class="movie-info">
                 <h2 class="movie-title">MECCHA CHAMELEON</h2>
@@ -635,6 +661,46 @@
                 <h2 class="movie-title">Half-Life 2</h2>
                 <div class="movie-meta">
                     <span class="year">2004</span>
+                    <span class="rating"></span>
+                </div>
+                <div class="movie-genre"></div>
+                <p class="movie-description"></p>
+            </div>
+        </a>
+        
+        <a href="https://gamedeep241.github.io/games/EscapeTheBackrooms/" class="movie-card" data-trending="0">
+            <span class="online-badge">Online</span>
+            <img class="movie-poster" src="https://shared.steamstatic.com/store_item_assets/steam/apps/1943950/library_600x900_2x.jpg?t=1761247136" alt="FH3 Poster">
+            <div class="movie-info">
+                <h2 class="movie-title">Escape The Backrooms</h2>
+                <div class="movie-meta">
+                    <span class="year">2022</span>
+                    <span class="rating"></span>
+                </div>
+                <div class="movie-genre"></div>
+                <p class="movie-description"></p>
+            </div>
+        </a>
+
+        <a href="/games/SpidermanMilesMorales" class="movie-card" data-trending="0">
+            <img class="movie-poster" src="https://shared.steamstatic.com/store_item_assets/steam/apps/1817190/library_600x900.jpg?t=1750955016">
+            <div class="movie-info">
+                <h2 class="movie-title">Marvel's Spider-man Miles Morales</h2>
+                <div class="movie-meta">
+                    <span class="year">2020</span>
+                    <span class="rating"></span>
+                </div>
+                <div class="movie-genre"></div>
+                <p class="movie-description"></p>
+            </div>
+        </a>
+
+        <a href="/games/TombRaider" class="movie-card" data-trending="0">
+            <img class="movie-poster" src="https://shared.steamstatic.com/store_item_assets/steam/apps/203160/library_600x900_2x.jpg?t=1709833975">
+            <div class="movie-info">
+                <h2 class="movie-title">Tomb Raider</h2>
+                <div class="movie-meta">
+                    <span class="year">2013</span>
                     <span class="rating"></span>
                 </div>
                 <div class="movie-genre"></div>
@@ -676,12 +742,10 @@
                             const gameData = data.results[0];
 
                             // 1. Update Trending Data
-                            // RAWG's "added" count represents the number of users who own the game, making it a great metric for trending/popularity.
                             let popularityScore = gameData.added || 0;
                             card.setAttribute('data-trending', popularityScore); 
 
                             // 2. Update Genre Data
-                            // Map over the genres array and join them with " / " to match your existing styling
                             if (gameData.genres && gameData.genres.length > 0) {
                                 let genreNames = gameData.genres.map(genre => genre.name).join(" / ");
                                 let genreElement = card.querySelector('.movie-genre');
@@ -738,7 +802,6 @@
                     return titleB.localeCompare(titleA); 
                 } 
                 else if (sortOption === "trending") {
-                    // Sorting by the fetched data-trending attribute (highest value first)
                     let trendA = parseInt(a.getAttribute('data-trending') || 0); 
                     let trendB = parseInt(b.getAttribute('data-trending') || 0); 
                     return trendB - trendA; 
